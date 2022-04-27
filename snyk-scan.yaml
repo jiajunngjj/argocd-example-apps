@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
       env:
-        - name: snyk-token
+        - name: SNYK_TOKEN
           valueFrom:
             secretKeyRef:
               name: snyk-token
@@ -20,7 +20,7 @@ spec:
         command: ["/bin/sh","-c"]
         args:
           - git clone https://github.com/jiajunngjj/argocd-example-apps.git
-          - snyk auth snyk-token
+          - snyk auth $SNYK_TOKEN
           - snyk iac test guestbook/guestbook-ui-deployment.yaml
       restartPolicy: Never
   backoffLimit: 0
