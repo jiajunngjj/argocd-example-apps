@@ -16,7 +16,7 @@ spec:
         - >
           git clone https://github.com/jiajunngjj/argocd-example-apps.git &&
           snyk auth $SNYK_TOKEN &&
-          snyk iac test argocd-example-apps/guestbook/guestbook-ui-deployment.yaml
+          snyk iac test argocd-example-apps/guestbook/guestbook-ui-deployment.yaml || true
         env:
           - name: SNYK_TOKEN
             valueFrom:
